@@ -100,15 +100,15 @@ public class MapAlgorithm {
         if (null == node1 || null == node2) {
             return null;
         }
-        if (null == node1.getParent() || null == node2.getParent() || node1.getParent().getValue() == 9999999999L || node2.getParent().getValue() == 9999999999L) {
-            return 9999999999L;
+        if (null == node1.getParent() || null == node2.getParent() || node1.getParent().getValue() == Long.MAX_VALUE || node2.getParent().getValue() == Long.MAX_VALUE) {
+            return Long.MAX_VALUE;
         }
 
         TreeNode temp = node2;
 
-        while(null != node1.getParent() && node1.getParent().getValue() != 9999999999L) {
+        while(null != node1.getParent() && node1.getParent().getValue() != Long.MAX_VALUE) {
 
-            while (null != temp.getParent() && temp.getParent().getValue() != 9999999999L) {
+            while (null != temp.getParent() && temp.getParent().getValue() != Long.MAX_VALUE) {
                 if(temp.getParent().getValue().compareTo(node1.getParent().getValue()) == 0) {
                     return temp.getParent().getValue();
                 } else {
